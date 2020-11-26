@@ -1,0 +1,23 @@
+{
+  "name": "assemblyscriptstudy",
+  "version": "1.0.0",
+  "description": "for wasm study",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests",
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
+  },
+  "keywords": [
+    "wasm"
+  ],
+  "author": "xwx",
+  "license": "ISC",
+  "dependencies": {
+    "@assemblyscript/loader": "^0.17.2"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.17.2"
+  }
+}
