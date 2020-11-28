@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //var importObject = { imports: { imported_func: arg => console.log(arg) } };
+        // instantiateStreaming Safari不支持，需改用 compile + instantia
+        // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming
+        WebAssembly.instantiateStreaming(fetch('./test.wasm')) //, importObject)
+        .then(results => {
+            console.time("fib-wasm");
+
+            console.log(results.instance.exports.fib(40))
+
+            console.timeEnd("fib-wasm");
+        });
+   
+      
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
