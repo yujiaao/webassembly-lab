@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       let asmfib= function (){
+            "use asm";
+
+            function fib(n){
+                n = n|0;
+                if((n|0)==0)return 0;
+                if((n|0)==(1|0)) return 1; //if(n<2) : Invalid asm.js: Expected signed, unsigned, double, or float for operator "<". https://stackoverflow.com/a/18726031/1484621
+
+                return (fib((n-2)|0)|0) + (fib((n-1)|0)|0) |0;
+            }
+
+            return fib;
+        }
+        console.time("fib");
+        console.log(asmfib()(40));
+        console.timeEnd('fib');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
