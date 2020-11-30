@@ -9,17 +9,26 @@ int fib(n) {
   double phin=pow(Phi,n);
   int sign=1;
   if(n%2==1) sign=-1;
-  return (int)((phin - sign/phin)/sqrt5);
-  //  return round((phin - sign/phin)/sqrt5);
-
+  return round((phin - sign/phin)/sqrt5);
 }
+
+int fib2(n) {
+  double sqrt5=sqrt(5);
+  double Phi=(sqrt5+1)/2;
+  double phin=pow(Phi,n);
+
+  return round((phin/sqrt5));
+}
+
+
 
 int main() {
     clock_t start, stop;
     int i;
     start = clock();
 
-    printf("%d\n", fib(40));
+    for(int n=0; n<41;n++)
+      printf("fib= %d, fib2= %d, fib-fib2=%d\n", fib(n),fib2(n),fib(n)-fib2(n));
     
     stop = clock();
 
